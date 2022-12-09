@@ -1,31 +1,21 @@
 
 const root = document.getElementById('root')
-function Title () {
-  return (
-  <h3 id="title" onMouseEnter={ console.log('helloEnter')}>
-  Hello I'm a Title
-</h3>
-  )
+
+
+
+let counter = 0;
+function countUp() {
+  counter++
+  reRender()
 }
 
- 
-function Button() {
-  return (
-    <button
-    style={{
-     backgroundColor: 'tomato',
-    }}
-    onClick={() => console.log('im Clicked')}
-    >
-    </button>
-  )
+function reRender() {
+  ReactDOM.createRoot(root).render(<Container />)
 }
-
-
-const Container =  (
+const Container = () =>  (
 <div>
-  <Title />
-  <Button />
+<h3>Total click : {counter}</h3>
+<button onClick={countUp}>Click ME</button>
 </div>
 )
-ReactDOM.createRoot(root).render(<Title />, <Button />)
+reRender()
